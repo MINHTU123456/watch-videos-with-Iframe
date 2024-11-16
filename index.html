@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Iframe Loader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    textarea {
+      width: 80%;
+      height: 100px;
+      margin: 10px 0;
+      font-size: 14px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: none;
+    }
+    iframe {
+      width: 80%;
+      height: 450px;
+      border: none;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    #iframeContainer {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dynamic Iframe Loader</h1>
+  <button id="showInput">Load Video</button>
+
+  <div id="inputContainer" style="display: none;">
+    <textarea id="iframeInput" placeholder="Paste your iframe code here..."></textarea>
+    <br>
+    <button id="loadIframe">Embed Video</button>
+  </div>
+
+  <div id="iframeContainer"></div>
+
+  <script>
+    const showInputButton = document.getElementById('showInput');
+    const inputContainer = document.getElementById('inputContainer');
+    const loadIframeButton = document.getElementById('loadIframe');
+    const iframeContainer = document.getElementById('iframeContainer');
+    const iframeInput = document.getElementById('iframeInput');
+
+    // Hiển thị ô nhập liệu khi bấm nút Load Video
+    showInputButton.addEventListener('click', () => {
+      inputContainer.style.display = 'block';
+    });
+
+    // Tải iframe từ nội dung nhập vào
+    loadIframeButton.addEventListener('click', () => {
+      const iframeCode = iframeInput.value.trim();
+      if (iframeCode) {
+        iframeContainer.innerHTML = iframeCode;
+      } else {
+        alert('Please paste a valid iframe code.');
+      }
+    });
+  </script>
+</body>
+</html>
